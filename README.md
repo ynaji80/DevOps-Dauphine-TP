@@ -52,6 +52,10 @@ Vous êtes prêt.e pour le TP 🔥
 
 Cliquer sur **"Download ZIP"** en allant sur votre copie du dépôt.
 
-☝️ **BIEN VERIFIER LE CONTENU DU FICHIER ZIP AVANT DE RENDRE VOTRE TRAVAIL 🧘‍♂️**
-
 ![git_download_zip](images/git_download_zip.png)
+
+**Joindre également son state terraform**
+
+![dlownload_state](images/download_state.png)
+
+☝️ **BIEN VERIFIER LE CONTENU DU FICHIER ZIP AVANT DE RENDRE VOTRE TRAVAIL 🧘‍♂️**
