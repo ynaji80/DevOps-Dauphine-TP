@@ -47,9 +47,9 @@ Wordpress dispose d'une image Docker officielle disponible sur [DockerHub](https
    4. `echo $WORDPRESS_DB_PASSWORD` donne le mot de passe "root"
 
 6. Pipeline d'Intégration Continue (CI):
-   1. Créer un dépôt de type `DOCKER` sur artifact registry (si pas déjà fait, sinon utiliser celui appelé `website-tools`)
-   2. Créer une configuration cloudbuild pour construire l'image docker et la publier sur le depôt Artifact Registry
-   3. Envoyer (`submit`) le job sur Cloud Build et vérifier que l'image a bien été créée
+   1. Je vais utiliser  `website-tools`
+   2. Done
+   3. Done
 
 ## Partie 3 : Déployer Wordpress sur Cloud Run 🔥
 
@@ -59,11 +59,9 @@ Notre but, ne l'oublions pas est de déployer wordpress sur Cloud Run !
 
 ### Configurer l'adresse IP de la base MySQL utilisée par Wordpress
 
-1. Rendez vous sur : https://console.cloud.google.com/sql/instances/main-instance/connections/summary?
-   L'instance de base données dispose d'une `Adresse IP publique`. Nous allons nous servir de cette valeur pour configurer notre image docker Wordpress qui s'y connectera.
-
-2. Reprendre le Dockerfile de la [Partie 2](#partie-2--docker) et le modifier pour que `WORDPRESS_DB_HOST` soit défini avec l'`Adresse IP publique` de notre instance de base de donnée.
-3. Reconstruire notre image docker et la pousser sur notre Artifact Registry en utilisant cloud build
+1. Oui, c'est bien :34.42.164.224 pour mon cas
+2. Done
+3. Done
 
 ### Déployer notre image docker sur Cloud Run
 
@@ -124,11 +122,11 @@ Notre but, ne l'oublions pas est de déployer wordpress sur Cloud Run !
 
 2. Observer les journaux de Cloud Run (logs) sur : https://console.cloud.google.com/run/detail/us-central1/serveur-wordpress/logs.
    1. Véirifer la présence de l'entrée `No 'wp-config.php' found in /var/www/html, but 'WORDPRESS_...' variables supplied; copying 'wp-config-docker.php' (WORDPRESS_DB_HOST WORDPRESS_DB_PASSWORD WORDPRESS_DB_USER)`
-   2. Au bout de 5 min, que se passe-t-il ? 🤯🤯🤯
-   3. Regarder le resultat de votre commande `terraform apply` et observer les logs de Cloud Run
-   4. Quelle est la raison de l'erreur ? Que faut-il changer dans les paramètre de notre ressource terraform `google_cloud_run_service` ?
+   2. il crash
+   3. probleme de port
+   4. J'ai specifié le port du contenaire qui est 80
 
-3. A l'aide de la documentation terraform, d'internet ou de ChatGPT, ou même d'un certain TP 😌 faites en sorte que Cloud Run soit correctement configuré pour utiliser votre image Docker wordpress.
+3. Done.
 
 4. Autoriser toutes les adresses IP à se connecter à notre base MySQL (sous réserve d'avoir l'utilisateur et le mot de passe évidemment)
    1. Pour le faire, exécuter la commande
@@ -136,10 +134,11 @@ Notre but, ne l'oublions pas est de déployer wordpress sur Cloud Run !
       gcloud sql instances patch main-instance \
       --authorized-networks=0.0.0.0/0
       ```
-
+    Done....
+    
 5. Accéder à notre Wordpress déployé 🚀
-   1. Aller sur : https://console.cloud.google.com/run/detail/us-central1/serveur-wordpress/metrics?
-   2. Cliquer sur l'URL de votre Cloud Run : similaire à https://serveur-wordpress-oreldffftq-uc.a.run.app
+   1. Aller sur : https://console.cloud.google.com/run/detail/us-central1/serveur-wordpress/metrics? Done
+   2. Cliquer sur l'URL de votre Cloud Run : similaire à https://serveur-wordpress-oreldffftq-uc.a.run.app Done
    3. Que voyez vous ? 🙈
 
 
