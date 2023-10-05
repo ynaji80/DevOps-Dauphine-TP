@@ -16,20 +16,27 @@ Wordpress dispose d'une image Docker officielle disponible sur [DockerHub](https
 
 2. Lancer l'image docker et ouvrez un shell à l'intérieur de votre container:
    1. Quel est le répertoire courant du container (WORKDIR) ? /var/www/html
-   2. Que contient le fichier `index.php` ?
+   2. Que contient le fichier `index.php` ? J'ai pas trouvé
 
 3. Supprimez le container puis relancez en un en spécifiant un port binding (une correspondance de port).
 
-   1. Vous devez pouvoir communiquer avec le port par défaut de wordpress : **80** (choisissez un port entre 8000 et 9000 sur votre machine hôte => cloudshell)
+   1. docker run -d -p 8080:80  --name=container-wordpress  wordpress
 
-   2. Avec la commande `curl`, faites une requêtes depuis votre machine hôte à votre container wordpress. Quelle est la réponse ? (il n'y a pas piège, essayez sur un port non utilisé pour constater la différence)
+   2. Done.
 
-   3. Afficher les logs de votre container après avoir fait quelques requêtes, que voyez vous ?
+   3. 
+    WordPress not found in /var/www/html - copying now...
+    Complete! WordPress has been successfully copied to /var/www/html
+    AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+    AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+    [Thu Oct 05 08:10:33.946556 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.56 (Debian) PHP/8.0.30 configured -- resuming normal operations
+    [Thu Oct 05 08:10:33.946685 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+
    4. Utilisez l'aperçu web pour afficher le résultat du navigateur qui se connecte à votre container wordpress
       1. Utiliser la fonction `Aperçu sur le web`
         ![web_preview](images/wordpress_preview.png)
-      2. Modifier le port si celui choisi n'est pas `8000`
-      3. Une fenètre s'ouvre, que voyez vous ?
+      2. j'ai exposé sur 8080
+      3. une page web
 
 4. A partir de la documentation, remarquez les paramètres requis pour la configuration de la base de données.
 
