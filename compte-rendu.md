@@ -41,14 +41,10 @@ Wordpress dispose d'une image Docker officielle disponible sur [DockerHub](https
 4. A partir de la documentation, remarquez les paramètres requis pour la configuration de la base de données.
 
 5. Dans la partie 1 du TP (si pas déjà fait), nous allons créer cette base de donnée. Dans cette partie 2 nous allons créer une image docker qui utilise des valeurs spécifiques de paramètres pour la base de données.
-   1. Créer un Dockerfile
-   2. Spécifier les valeurs suivantes pour la base de données à l'aide de l'instruction `ENV` (voir [ici](https://stackoverflow.com/questions/57454581/define-environment-variable-in-dockerfile-or-docker-compose)):
-        - `WORDPRESS_DB_USER=wordpress`
-        - `WORDPRESS_DB_PASSWORD=ilovedevops`
-        - `WORDPRESS_DB_NAME=wordpress`
-        - `WORDPRESS_DB_HOST=0.0.0.0`
-   3. Construire l'image docker.
-   4. Lancer une instance de l'image, ouvrez un shell. Vérifier le résultat de la commande `echo $WORDPRESS_DB_PASSWORD`
+   1. Done
+   2. Done
+   3. Done
+   4. `echo $WORDPRESS_DB_PASSWORD` donne le mot de passe "root"
 
 6. Pipeline d'Intégration Continue (CI):
    1. Créer un dépôt de type `DOCKER` sur artifact registry (si pas déjà fait, sinon utiliser celui appelé `website-tools`)
